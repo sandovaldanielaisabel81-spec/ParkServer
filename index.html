@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PARKVERSE - Estaciona, explora e interactúa.">
+  <title>PARKVERSE | Estaciona. Explora. Interactúa.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#inicio">🚗 <span>PARK</span>VERSE</a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#buscar">Estacionamientos</a>
+      <a href="#experiencias">Experiencias</a>
+      <a href="#negocios">Negocios</a>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <span class="badge">🌐 SMART MOBILITY + DIGITAL EXPERIENCE</span>
+        <h1>Estaciona.<br><span>Explora.</span><br>Interactúa.</h1>
+        <p>
+          PARKVERSE conecta estacionamientos, conductores y negocios
+          mediante una experiencia digital moderna, interactiva y creativa.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#buscar">Buscar estacionamiento 🅿️</a>
+          <a class="btn secondary" href="#experiencias">Descubrir PARKVERSE ✨</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="car-3d">🚗</div>
+        <div class="orbit orbit1"></div>
+        <div class="orbit orbit2"></div>
+        <div class="floating-card card-top">📍 Multiplaza<br><strong>8 espacios</strong></div>
+        <div class="floating-card card-bottom">🟢 Disponible<br><strong>$2.00/hora</strong></div>
+      </div>
+    </section>
+
+    <section id="buscar" class="section">
+      <div class="section-title">
+        <span class="mini-title">PARKIA</span>
+        <h2>Encuentra tu estacionamiento</h2>
+        <p>Busca una zona y compara precio, disponibilidad y ubicación.</p>
+      </div>
+
+      <div class="search-box">
+        <input id="zonaInput" type="text" placeholder="Ej.: Multiplaza, Obarrio, Costa del Este">
+        <button class="btn primary" onclick="buscarEstacionamientos()">🔎 Buscar</button>
+      </div>
+
+      <div id="parkingResults" class="parking-grid"></div>
+    </section>
+
+    <section id="experiencias" class="section dark-section">
+      <div class="section-title">
+        <span class="mini-title">PARKVERSE EXPERIENCE</span>
+        <h2>Más que un estacionamiento</h2>
+        <p>Explora las experiencias digitales que hacen diferente a PARKVERSE.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="icon">📱</div>
+          <h3>Realidad Aumentada</h3>
+          <p>Una guía virtual puede ayudarte a encontrar tu estacionamiento y descubrir promociones cercanas.</p>
+          <button onclick="mostrarDemo('AR')">Probar demo</button>
+        </article>
+        <article class="feature">
+          <div class="icon">🌐</div>
+          <h3>Web 3D</h3>
+          <p>Explora productos y espacios virtuales con una experiencia visual e interactiva.</p>
+          <button onclick="mostrarDemo('3D')">Explorar demo</button>
+        </article>
+        <article class="feature">
+          <div class="icon">🎨</div>
+          <h3>Rich Media</h3>
+          <p>Anuncios que permiten interactuar, cambiar colores, observar productos y comprar.</p>
+          <button onclick="mostrarDemo('RICH')">Interactuar</button>
+        </article>
+        <article class="feature">
+          <div class="icon">🎬</div>
+          <h3>FOOH / CGI</h3>
+          <p>Campañas digitales espectaculares para redes sociales y publicidad inmersiva.</p>
+          <button onclick="mostrarDemo('FOOH')">Ver concepto</button>
+        </article>
+      </div>
+      <div id="demoMessage" class="demo-message"></div>
+    </section>
+
+    <section id="negocios" class="section">
+      <div class="section-title">
+        <span class="mini-title">PARA EMPRESAS</span>
+        <h2>Convierte espacios en experiencias</h2>
+        <p>PARKVERSE también conecta negocios con clientes mediante tecnología digital.</p>
+      </div>
+
+      <div class="business-layout">
+        <div class="virtual-store">
+          <div class="store-header">🏬 PARKVERSE VIRTUAL STORE</div>
+          <div class="store-floor">
+            <div class="product product1" onclick="seleccionarProducto('👟 Sneakers 3D')">👟</div>
+            <div class="product product2" onclick="seleccionarProducto('👜 Bolso 3D')">👜</div>
+            <div class="product product3" onclick="seleccionarProducto('🛋️ Sofá AR')">🛋️</div>
+            <div class="product product4" onclick="seleccionarProducto('👓 Gafas AR')">👓</div>
+          </div>
+          <p id="productSelected">Haz clic en un producto para interactuar.</p>
+        </div>
+
+        <div class="income">
+          <h3>💰 Modelo de ingresos</h3>
+          <ul id="incomeList"></ul>
+          <div class="income-total">
+            <span>Servicios disponibles</span>
+            <strong id="serviceCount">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>El futuro del estacionamiento empieza aquí.</h2>
+      <p>Una plataforma donde movilidad, comercio y creatividad se encuentran.</p>
+      <button class="btn primary" onclick="reservarDemo()">🚗 Reservar una experiencia</button>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>🚗 PARKVERSE</strong>
+      <p>Estaciona. Explora. Interactúa.</p>
+    </div>
+    <p>Proyecto académico desarrollado con HTML, CSS y JavaScript.</p>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="close" onclick="cerrarModal()">×</button>
+      <div id="modalText"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
